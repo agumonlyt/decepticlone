@@ -1,0 +1,1 @@
+python -m nuitka --onefile --standalone --windows-icon-from-ico=icon.png --enable-plugin=tk-inter --disable-console chrome.py
