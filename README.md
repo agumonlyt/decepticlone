@@ -1,2 +1,7 @@
 # decepticlone
-public maplestory bot source code 2024
+still work in progress ..
+the ui all very hard to make .. 
+
+
+
+![DECEPTICLONE!](assets/decepticlone.png)
