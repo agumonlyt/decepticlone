@@ -1,3 +1,6 @@
 
 /chrome.dist
 /main.dist
+*.pyc
+fly.html
+fly.py

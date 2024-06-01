@@ -73,113 +73,49 @@ class TitleBar(Frame):
 
 
 
-# class Decepticlone(customtkinter.CTk):
-class Decepticlone():
+class Decepticlone(customtkinter.CTk):
 
     def __init__(self) -> None:
-        # super().__init__()
-        app = customtkinter.CTk()
-        # self.geometry("500x500")
-        app.geometry("500x500")
-        # self.geometry("360x280")
-        # self.title("chrome")
-        app.title("chrome")
-        # titlebar = TitleBar(self, title="DECEPTICLONE")
-        # titlebar.pack(fill="both")
-        # tabview = customtkinter.CTkTabview(master=self, corner_radius=5)
-        # tabview._outer_spacing=0
-        # tabview.pack(padx=0, pady=0)        
-        # self.tab_1 = tabview.add("Controls")  # add tab at the end
-        # self.tab_2 = tabview.add("Skills")  # add tab at the end
-        # self.tab_3 = tabview.add("Consumables")  # add tab at the end
-        # self.tab_4 = tabview.add("Settings")  # add tab at the end
-        # self.tab_5 = tabview.add("Modules")  # add tab at the end
-        # self.tab_6 = tabview.add("+")  # add tab at the end
-        # tabview.set("Controls")  # set currently visible tab
-        # self.tab_1.grid_columnconfigure(0,weight=1)
-        # self.tab_1.grid_columnconfigure(1,weight=1)
-        # self.setup_tab1()
-        canvas = tkinter.Canvas(app, width=400, height=400, bg='white')
-        canvas.pack()
-        image_path = 'minimap.png'
-        pil_image = Image.open(image_path)
-        tk_image = ImageTk.PhotoImage(pil_image)
-        canvas.create_image(200, 200, image=tk_image)
-        print(f'mainloop3')
-        app.mainloop()
-
-    # def setup_tab1(self):
-        # frameright2 = customtkinter.CTkFrame(self.tab_1, fg_color='#f231ff', height=110, width=170)
-        # frameright2 = customtkinter.CTkFrame(self.tab_1, fg_color='#f231ff')
-        # frameright2 = customtkinter.CTkFrame(self.tab_1)
-        # frameright2.grid_propagate(False)
-        # frameright2.rowconfigure(0, weight=1)
-        # frameright2.columnconfigure(0, weight=1)
-        # frameright2.pack(padx=(1,1),pady=(0,0))
-        # frameright2.grid(row=0,column=0,padx=(1,1),pady=(0,0))
-        # frameright2.grid(row=1,column=0,padx=(1,1),pady=(0,0))
-
-        # frame2image = customtkinter.CTkImage(light_image=Image.open('minimap.png'), dark_image=Image.open('minimap.png'), size=(170,110))
-        # canvas = tkinter.Canvas(frameright2, borderwidth=0, highlightthickness=0, relief='ridge')
-        # canvas = tkinter.Canvas(self.tab_1)
-        # canvas = tkinter.Canvas(self, height=400, width=400)
-        # canvas = tkinter.Canvas(frameright2, borderwidth=0, highlightthickness=0, relief='ridge', height=150, width=300)
-        # canvas = tk.Canvas(frameright2, borderwidth=0, highlightthickness=0, relief='ridge')
-        # canvas.pack(padx=(0,0),pady=(0,0))
-        # canvas.pack(padx=(0,0),pady=(0,0), anchor='nw', fill='both', expand=1)
-        # canvas.grid(row=0,column=0,padx=(0,0),pady=(0,0), sticky='nw')
-        # image = Image.open('minimap.png')
-        # image = image.resize((170,110), Image.LANCZOS)
-        # imagetk = ImageTk.PhotoImage(image)
-        # open_cv_image = np.array(image)
-        # open_cv_image = cv2.cvtColor(open_cv_image, cv2.COLOR_RGB2BGR)
-        # cv2.imshow('img',open_cv_image)
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
-        # canvas.create_image(0,0,image=imagetk)
-        # canvas.create_image(0,0,image=imagetk, anchor='nw')
+        super().__init__()
+        self.geometry("500x500")
+        self.title("chrome")
         
-        # Draw a rectangle
-        # canvas.create_rectangle(50, 50, 150, 150, outline='black', fill='blue')
-        # # # Draw an oval (circle)
-        # canvas.create_oval(200, 50, 300, 150, outline='black', fill='red')
-        # # # Draw a line
-        # canvas.create_line(50, 200, 150, 300, fill='green', width=3)
-        # # # Draw a polygon (triangle)
-        # canvas.create_polygon(200, 200, 250, 250, 300, 200, outline='black', fill='yellow')
+        
+        frame1 = customtkinter.CTkFrame(self, fg_color='green', width=170, height=70, corner_radius=5)
+        # frame1.grid_propagate(False)
+        # frame1.grid_columnconfigure(0,weight=1)
+        # frame1.grid_columnconfigure(1,weight=1)
+        frame1.grid(row=0,column=0,padx=0,pady=0)
+        # # frame2 = customtkinter.CTkFrame(self.tab_2, fg_color='transparent', width=170, height=110, corner_radius=5)
+        # frame2 = customtkinter.CTkFrame(self.tab_2, fg_color='lime', width=170, height=110, corner_radius=5)
+        # frame2.grid_propagate(False)
+        # frame2.grid(row=1,column=0,padx=0,pady=0)
+        # frame3 = customtkinter.CTkFrame(self.tab_2, fg_color='khaki', width=170, height=180, corner_radius=5)
+        # frame3.grid_propagate(False)
+        # frame3.grid(row=0,column=1, rowspan=2, padx=0,pady=0)
 
-        # canvas.create_image(100,100,image=imagetk)
+        # label1 = customtkinter.CTkLabel(frame1, text='Class Required Skills', font=('Arial', 12, 'bold'), height=20)
+        # label1.grid(row=0,column=0, padx=4,pady=0, sticky='w')
+        sframe1 = customtkinter.CTkScrollableFrame(frame1, fg_color='purple', width=146, height=30, corner_radius=5)
+        sframe1.grid(row=0,column=0,padx=1,pady=0)
+        sframe1._scrollbar.configure(height=0)
+        # sframe1.grid_rowconfigure(0, weight=1)
+        # sframe1.grid_columnconfigure(0, weight=1)
+        self.entrylist=[]
+        for i in range(10):
+            entry1 = customtkinter.CTkEntry(sframe1, width=60)
+            entry1.grid(row=i,column=0,padx=1,pady=(1,0))
+            self.entrylist.append(entry1)
+            entrylabel1 = customtkinter.CTkLabel(sframe1, width=70, text='text')
+            entrylabel1.grid(row=i,column=1,padx=1,pady=(1,0))
+    
 
 
 
 async def main():
     decepticlone = Decepticlone()
-    print(f'mainloop1')
-    # decepticlone.mainloop()
-    print(f'mainloop2')
+    decepticlone.mainloop()
     
-    # root = customtkinter.CTk()
-    # root.title("Display Image on Canvas")
-    # # titlebar = TitleBar(root, title="DECEPTICLONE")
-    # # titlebar.pack(fill="both")    
-    # # tabview = customtkinter.CTkTabview(master=root, corner_radius=5)
-    # # tabview._outer_spacing=0
-    # # tabview.pack(padx=0, pady=0)  
-    # # tab1 = tabview.add('tab1')
-    # # tab2 = tabview.add('tab2')
-    # # tab3 = tabview.add('tab3')
-    # # tab4 = tabview.add('tab4')
-    # # tab5 = tabview.add('tab5')
-    # # canvas = tkinter.Canvas(tab1, width=400, height=400, bg='white')
-    # canvas = tkinter.Canvas(root, width=400, height=400, bg='white')
-    # canvas.pack()
-    # image_path = 'minimap.png'
-    # pil_image = Image.open(image_path)
-    # tk_image = ImageTk.PhotoImage(pil_image)
-    # canvas.create_image(200, 200, image=tk_image)
-    # root.mainloop()
-
-
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -3,6 +3,9 @@ import asyncio
 import tkinter
 from tkinter import Frame, Label
 from PIL import Image, ImageTk
+from bumblebee import customtkinter as bumblebeetkinter
+# from bumblebee.customtkinter.windows.widgets import CTkCheckBox
+# import ttkbootstrap as tb
 
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
@@ -15,7 +18,7 @@ DARK_BLUE = "#031249"
 DARK = "#212121"
 SECOND_DARK_BLUE = "#142455"
 
-# Custom Title Bar
+
 class TitleBar(Frame):
     def __init__(self, parent, title:str):
         self.root = parent
@@ -64,6 +67,27 @@ class TitleBar(Frame):
         self.root.deiconify()
         self.root.overrideredirect(0)
 
+class ToplevelWindow(customtkinter.CTkToplevel):
+    # def __init__(self, mylabeltext, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    def __init__(self, mylabeltext2, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.geometry("400x300")
+
+        self.title("chrome")
+        titlebar = TitleBar(self, title="DECEPTICLONE")
+        titlebar.pack(fill="both")
+
+        print(args)
+        print(kwargs)
+        print(mylabeltext2)
+
+        self.label1 = customtkinter.CTkLabel(self, text="Press any key to bind")
+        self.label1.pack(padx=20, pady=20)
+        self.label2 = customtkinter.CTkLabel(self, text=f'{mylabeltext2}')
+        self.label2.pack(padx=20, pady=20)
+        self.label3 = customtkinter.CTkLabel(self, text="Press ESC to cancel.\n\n Waiting ...")
+        self.label3.pack(padx=20, pady=20)
 
 
 
@@ -75,49 +99,204 @@ class Decepticlone(customtkinter.CTk):
 
     def __init__(self) -> None:
         super().__init__()
-        # self.app = customtkinter.CTk()
-        self.geometry("360x280")
-        # self.app.title("chrome")
+        # self.geometry("360x300")
+        self.geometry("400x320")
         self.title("chrome")
         titlebar = TitleBar(self, title="DECEPTICLONE")
         titlebar.pack(fill="both")
-        tabview = customtkinter.CTkTabview(master=self, corner_radius=5)
+        # tabview = customtkinter.CTkTabview(master=self, width=400, height=180, corner_radius=0, border_width=0, bg_color='#1fb37f', fg_color='#fdfd12')
+        tabview = customtkinter.CTkTabview(master=self, width=400, height=180, corner_radius=5, border_width=0)
         tabview._outer_spacing=0
         tabview.pack(padx=0, pady=0)        
-        self.tab_1 = tabview.add("Controls")  # add tab at the end
-        self.tab_2 = tabview.add("Skills")  # add tab at the end
-        self.tab_3 = tabview.add("Consumables")  # add tab at the end
-        self.tab_4 = tabview.add("Settings")  # add tab at the end
-        self.tab_5 = tabview.add("Modules")  # add tab at the end
-        self.tab_6 = tabview.add("+")  # add tab at the end
-        tabview.set("Controls")  # set currently visible tab
-        # self.tab_1.grid_columnconfigure(0,weight=1)
-        # self.tab_1.grid_columnconfigure(1,weight=1)
-        self.setup_tab1()        
-        # canvas = tkinter.Canvas(self.app, bg='white')
-        # canvas.pack(padx=(0,0),pady=(0,0))
-        # image = Image.open('minimap.png')
-        # imagetk = ImageTk.PhotoImage(image)
-        # canvas.create_image(0,0,image=imagetk)
+        self.tab_1 = tabview.add("Controls")
+        self.tab_2 = tabview.add("Skills")
+        self.tab_3 = tabview.add("Consumables")
+        self.tab_4 = tabview.add("Settings")
+        self.tab_5 = tabview.add("Modules")
+        self.tab_6 = tabview.add("+")
+        tabview.set("Consumables")
 
+    def setup_tab3(self):
+        frame1 = customtkinter.CTkFrame(self.tab_3, fg_color='transparent', width=170, height=200, corner_radius=5)
+        frame1.grid_propagate(False)
+        frame1.grid(row=0,column=0,padx=0,pady=0)
+        frame2 = customtkinter.CTkFrame(self.tab_3, fg_color='transparent', width=220, height=200, corner_radius=5)
+        frame2.grid_propagate(False)
+        frame2.grid_columnconfigure(2,weight=1)
+        frame2.grid(row=0,column=1, padx=0,pady=0)
+
+
+        self.toplevel_window = None
+
+        def create_label(master,button_id,text='Custom Slot'):
+            label1 = customtkinter.CTkLabel(master, text=text, text_color="white", font=("Arial", 12), 
+            # height=11, anchor='w', bg_color='#fabcd3')
+            height=11, anchor='w', bg_color='transparent')
+            return label1
+        def create_checkbox(master,button_id):
+            checkbox1 = bumblebeetkinter.CTkCheckBox(master, width=11, height=11, checkbox_width=12, checkbox_height=12, 
+            border_width=0, corner_radius=0, checkmark_color='#424041', fg_color='#0bbdb3', bg_color='#424041')
+            return checkbox1
+        def create_button(master,button_id):
+            def button_command1():
+                if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
+                    self.toplevel_window = ToplevelWindow(mylabeltext2=f'{button_id}')  # create window if its None or destroyed
+                    button1.configure(text=f'{button_id}')
+                else:
+                    self.toplevel_window.focus()  # if window exists focus it
+            button1 = customtkinter.CTkButton(master, width=30, height=20, border_width=0, text='', command=lambda: button_command1(),
+            font=('Lucida Console', 10), fg_color='#0bbdb3')
+            return button1
+        self.buttonlist1=[]
+        self.entrylist1=[]
+        self.checkboxlist1=[]
+        labellisttxt = ['Union Wealth', 'Union EXP', 'Mushroom Buff', 'MVP 50% EXP', 'Yellow Potion', '2X EXP (30m)', '2X EXP (15m)', 
+        'EB Box', 'Ignition Ring']
+        for i in range(9):
+            button = create_button(frame1,i)            
+            button.grid(row=i,column=0,padx=0,pady=(2,0), sticky='w')
+            checkbox1 = create_checkbox(frame1,i)
+            checkbox1.grid(row=i,column=1,padx=(5,0),pady=(0,0), sticky='w')
+            self.checkboxlist1.append(checkbox1)
+            label1 = create_label(frame1,i,text=labellisttxt[i])
+            label1.grid(row=i,column=2,padx=(5,0),pady=(0,0), sticky='w')
+        self.entrylist2=[]
+        self.checkboxlist2=[]
+        labellisttxt2 = ['Wealth Acquisition Potion', 'EXP Accumulation Potion', 'Nobless Skill 1 (1h)', 'Nobless Skill 2 (1h)']
+        for i in range(4):
+            button = create_button(frame2,i)            
+            button.grid(row=i,column=0,padx=0,pady=(2,0), sticky='w')
+            checkbox1 = create_checkbox(frame2,i)
+            checkbox1.grid(row=i,column=1,padx=(5,0),pady=(0,0), sticky='w')
+            self.checkboxlist1.append(checkbox1)
+            label1 = create_label(frame2,i,text=labellisttxt2[i])
+            label1.grid(row=i,column=2,columnspan=2,padx=(5,0),pady=(0,0), sticky='w')
+        spinbox1values=['60s','120s','150s','300s','600s','900s','1800s']        
+        for i in range(2):
+            button = create_button(frame2,i)            
+            button.grid(row=i+4,column=0,padx=0,pady=(2,0), sticky='w')
+            checkbox1 = create_checkbox(frame2,i)
+            checkbox1.grid(row=i+4,column=1,padx=(5,0),pady=(0,0), sticky='w')
+            self.checkboxlist1.append(checkbox1)
+            label1 = create_label(frame2,i,'Custom Slot')
+            label1.grid(row=i+4,column=2,padx=(5,0),pady=(0,0), sticky='w')
+            spinbox1_var = tkinter.StringVar(frame2)
+            spinbox1 = tkinter.Spinbox(frame2, font=('Helvetica',10), width=6, from_=0, to=10, values=spinbox1values, textvariable=spinbox1_var, 
+            state='readonly', bd=0, buttonbackground='#212121', fg='#fffeee', bg='#212121', readonlybackground='#212121')
+            spinbox1.grid(row=i+4,column=3,padx=(1,5),pady=(1,1))
+            spinbox1_var.set('1800s')
+        usepotionlist = [f"{i}s" for i in range(10, 301, 10)]
+        labellisttxt3 = ['Use Potion?', 'Use Pet Food?']
+        for i in range(2):
+            checkbox1 = create_checkbox(frame2,i)
+            checkbox1.grid(row=i+6,column=1,padx=(5,0),pady=(0,0), sticky='w')
+            self.checkboxlist1.append(checkbox1)
+            label1 = create_label(frame2,i,text=labellisttxt3[i])
+            label1.grid(row=i+6,column=2,padx=(5,0),pady=(0,0), sticky='w')
+            spinbox1_var = tkinter.StringVar(frame2)
+            spinbox1 = tkinter.Spinbox(frame2, font=('Helvetica',10), width=6, from_=0, to=10, values=usepotionlist, textvariable=spinbox1_var, 
+            state='readonly', bd=0, buttonbackground='#212121', fg='#fffeee', bg='#212121', readonlybackground='#212121')
+            spinbox1.grid(row=i+6,column=3,padx=(1,5),pady=(1,1))
+            spinbox1_var.set('300s')
+        framebutton = customtkinter.CTkFrame(frame2, fg_color='transparent', width=219, corner_radius=5)
+        framebutton.grid_propagate(False)
+        framebutton.grid_columnconfigure(0,weight=1)
+        framebutton.grid_columnconfigure(1,weight=1)
+        framebutton.grid(row=9,column=0, columnspan=4, padx=0,pady=0, sticky='w')
+        def enableall():
+            pass
+        buttonenable = customtkinter.CTkButton(framebutton, width=80, border_width=0, text='Enable All', command=enableall,
+        font=('Helvetica', 12), fg_color='#0bbdb3', text_color='black', height=20)
+        buttonenable.grid(row=0,column=0,padx=(35,5),pady=(5,0), sticky='w')
+        def disableall():
+            pass
+        buttondisable = customtkinter.CTkButton(framebutton, width=80, border_width=0, text='Disable All', command=disableall,
+        font=('Helvetica', 12), fg_color='#0bbdb3', text_color='black', height=20)
+        buttondisable.grid(row=0,column=1,padx=0,pady=(5,0), sticky='w')
+
+
+
+
+    def setup_tab2(self):
+        frame1 = customtkinter.CTkFrame(self.tab_2, fg_color='green', width=170, height=70, corner_radius=5)
+        # frame1.grid_propagate(False)
+        frame1.grid_columnconfigure(0,weight=1)
+        frame1.grid_columnconfigure(1,weight=1)
+        frame1.grid(row=0,column=0,padx=0,pady=0)
+        # # frame2 = customtkinter.CTkFrame(self.tab_2, fg_color='transparent', width=170, height=110, corner_radius=5)
+        frame2 = customtkinter.CTkFrame(self.tab_2, fg_color='lime', width=170, height=130, corner_radius=5)
+        frame2.grid_propagate(False)
+        frame2.grid(row=1,column=0,padx=0,pady=0)
+        frame3 = customtkinter.CTkFrame(self.tab_2, fg_color='khaki', width=170, height=200, corner_radius=5)
+        frame3.grid_propagate(False)
+        frame3.grid_columnconfigure(0, weight=1)
+        frame3.grid_columnconfigure(1, weight=1)
+        frame3.grid(row=0,column=1, rowspan=2, padx=0,pady=0)
+
+        label1 = customtkinter.CTkLabel(frame1, text='Class Required Skills', font=('Arial', 12, 'bold'), height=18)
+        label1.grid(row=0,column=0, padx=4,pady=0, sticky='w')
+        sframe1 = customtkinter.CTkScrollableFrame(frame1, fg_color='purple', width=146, height=40, corner_radius=5, border_width=0)
+        sframe1.grid(row=1,column=0,padx=1,pady=0)
+        sframe1._scrollbar.configure(height=0)
+        # sframe1.grid_rowconfigure(0, weight=1)
+        # sframe1.grid_columnconfigure(0, weight=1)
+        # sframe1.grid_columnconfigure(1, weight=1)
+        # sframe1.grid_columnconfigure(2, weight=1)
+        self.entrylist=[]
+        for i in range(20):
+            entry1 = customtkinter.CTkEntry(sframe1, width=40, height=20, justify='center')
+            entry1.grid(row=i,column=0,padx=0,pady=(0,0), sticky='nw')
+            self.entrylist.append(entry1)
+            entrylabel1 = customtkinter.CTkLabel(sframe1, width=100, height=20, text=f'{i}', fg_color='black', anchor='w')
+            entrylabel1.grid(row=i,column=1,padx=2,pady=(1,0), sticky='nw')
+
+        label2 = customtkinter.CTkLabel(frame2, text='Class Skills', font=('Arial', 12, 'bold'), height=18, text_color='#0e8783')
+        label2.grid(row=0,column=0, padx=4,pady=0, sticky='w')
+        sframe2 = customtkinter.CTkScrollableFrame(frame2, fg_color='purple', width=146, height=100, corner_radius=5, border_width=0)
+        sframe2.grid(row=1,column=0,padx=1,pady=0)
+        sframe2._scrollbar.configure(height=0)
+        self.entrylist2=[]
+        for i in range(20):
+            entry2 = customtkinter.CTkEntry(sframe2, width=40, height=20, justify='center')
+            entry2.grid(row=i,column=0,padx=0,pady=(0,0), sticky='nw')
+            self.entrylist2.append(entry2)
+            entrylabel2 = customtkinter.CTkLabel(sframe2, width=100, height=20, text=f'{i}', fg_color='black', anchor='w')
+            entrylabel2.grid(row=i,column=1,padx=2,pady=(1,0), sticky='nw')
+
+        label3 = customtkinter.CTkLabel(frame3, text='Optional Skills', font=('Arial', 12, 'bold'), height=18, text_color='#0e8783', fg_color='black')
+        label3.grid(row=0,column=0, padx=(1,0),pady=0, sticky='w')
+        button3 = customtkinter.CTkButton(frame3, text='Skill Editor', font=('Arial', 12, 'bold'), width=60, height=18, text_color='#0e8783', fg_color='black')
+        button3.grid(row=0,column=1, padx=1,pady=0, sticky='e')
+        sframe3 = customtkinter.CTkScrollableFrame(frame3, fg_color='purple', width=146, height=168, corner_radius=5, border_width=0)
+        sframe3.grid(row=1,column=0,columnspan=2,padx=1,pady=0)
+        sframe3._scrollbar.configure(height=0)
+        self.entrylist3=[]
+        for i in range(20):
+            entry3 = customtkinter.CTkEntry(sframe3, width=40, height=20, justify='center')
+            entry3.grid(row=i,column=0,padx=0,pady=(0,0), sticky='nw')
+            self.entrylist3.append(entry2)
+            entrylabel3 = customtkinter.CTkLabel(sframe3, width=100, height=20, text=f'{i}', fg_color='black', anchor='w')
+            entrylabel3.grid(row=i,column=1,padx=2,pady=(1,0), sticky='nw')
+
+
+        pass
+        # self.mainloop()
 
     def setup_tab1(self):
         # frameleft = customtkinter.CTkFrame(self.tab_1, width=180, height=210, fg_color='transparent')
-        frameleft = customtkinter.CTkFrame(self.tab_1, fg_color='green', width=173, height=180, corner_radius=5)
+        # frameleft = customtkinter.CTkFrame(self.tab_1, fg_color='green', width=173, height=180, corner_radius=5)
+        frameleft = customtkinter.CTkFrame(self.tab_1, fg_color='transparent', width=173, height=180, corner_radius=5)
         frameleft.grid_propagate(False)
         frameleft.rowconfigure(0,weight=1)
         frameleft.rowconfigure(1,weight=1)
         frameleft.grid(row=0,column=0,padx=0,pady=0)
-        # frameleft.grid(row=0,column=0,padx=0,pady=0,sticky='nsew')
-        # frameright = customtkinter.CTkFrame(self.tab_1, width=180, height=210, fg_color='transparent')
-        frameright = customtkinter.CTkFrame(self.tab_1, fg_color='teal', width=173, height=180, corner_radius=5)
-        # frameright.grid_propagate(False)
-        # frameright.grid(row=0,column=1,padx=0,pady=0)
-        # frameright.pack(padx=0,pady=0)
+        # frameright = customtkinter.CTkFrame(self.tab_1, fg_color='teal', width=173, height=180, corner_radius=5)
+        frameright = customtkinter.CTkFrame(self.tab_1, fg_color='transparent', width=173, height=180, corner_radius=5)
         frameright.grid(row=0,column=1,padx=0,pady=0,sticky='nsew')
 
         # frame1 = customtkinter.CTkFrame(frameleft, fg_color='transparent', width=10, height=10)
-        frame1 = customtkinter.CTkFrame(frameleft, fg_color='blue', height=125, width=173)
+        # frame1 = customtkinter.CTkFrame(frameleft, fg_color='blue', height=125, width=173)
+        frame1 = customtkinter.CTkFrame(frameleft, fg_color='transparent', height=125, width=173)
         frame1.grid_propagate(False)
         frame1.grid(row=0,column=0,padx=0,pady=0, sticky='nsew')
 
@@ -135,7 +314,8 @@ class Decepticlone(customtkinter.CTk):
         button4.grid(row=1,column=1,padx=(3,3),pady=(2,4))
 
         # frame2 = customtkinter.CTkFrame(frameleft, width=180, fg_color='transparent')
-        frame2 = customtkinter.CTkFrame(frameleft, fg_color='purple', width=173)
+        # frame2 = customtkinter.CTkFrame(frameleft, fg_color='purple', width=173)
+        frame2 = customtkinter.CTkFrame(frameleft, fg_color='transparent', width=173)
         frame2.grid_propagate(False)
         frame2.columnconfigure(1,weight=1)
         
@@ -153,8 +333,8 @@ class Decepticlone(customtkinter.CTk):
         label6 = customtkinter.CTkLabel(frame2, text='Pickup Cycles', height=20, fg_color='transparent', font=('Helvetica',11), text_color='white', anchor='w')
         label6.grid(row=5,column=0,padx=(3,3),pady=(0,0), sticky='W', columnspan=2)
 
-        frame3 = customtkinter.CTkFrame(frame2, fg_color='magenta', height=20, width=80)
-        # frame3 = customtkinter.CTkFrame(frame2, fg_color='red', height=20, width=80)
+        # frame3 = customtkinter.CTkFrame(frame2, fg_color='magenta', height=20, width=80)
+        frame3 = customtkinter.CTkFrame(frame2, fg_color='transparent', height=20, width=80)
         frame3.grid_propagate(False)
         frame3.rowconfigure(0, weight=1)
         frame3.columnconfigure(0, weight=1)
@@ -173,16 +353,10 @@ class Decepticlone(customtkinter.CTk):
         self.bounds=40
         self.offset=50
         def sliding(value):
-            print(f'{value=} deleting {imagesrefleft[-1]=}')
-            # canvas.delete(imagesrefleft[-1])
-            # imagesrefleft.pop()
-            # imagesleft.pop()
-            # print(imagesrefleft, len(imagesrefleft))
-            # create_rectangle_left(0, 0, int(value), 110, fill='lightgreen', alpha=.3)
-            imagesrefleft.pop()
-            imagesleft.pop()
-            imagesrefright.pop()
-            imagesright.pop()
+            self.imagesrefleft.pop()
+            self.imagesleft.pop()
+            self.imagesrefright.pop()
+            self.imagesright.pop()
             value=int(value)
             self.bounds=value
             leftend=80-self.bounds+self.offset-50
@@ -196,16 +370,10 @@ class Decepticlone(customtkinter.CTk):
         slider1 = customtkinter.CTkSlider(frame2,from_=0,to=80,command=sliding,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
         slider1.grid(row=1,column=1,padx=(1,5),pady=(1,1), columnspan=2)
         def sliding2(value):
-            print(f'{value=}  deleting {imagesrefright[-1]=}')       
-            # canvas.delete(imagesrefright[-1])
-            # imagesrefright.pop()
-            # imagesright.pop()
-            # print(imagesrefright, len(imagesrefright))
-            # create_rectangle_right(int(value), 0, 170, 110, fill='red', alpha=.3)
-            imagesrefleft.pop()
-            imagesleft.pop()
-            imagesrefright.pop()
-            imagesright.pop()
+            self.imagesrefleft.pop()
+            self.imagesleft.pop()
+            self.imagesrefright.pop()
+            self.imagesright.pop()
             value=int(value)
             self.offset=value
             leftend=80-self.bounds+value-50
@@ -218,66 +386,45 @@ class Decepticlone(customtkinter.CTk):
             create_rectangle_right(rightstart, 0, 170, 110, fill='red', alpha=.3)
         slider2 = customtkinter.CTkSlider(frame2,from_=0,to=100,command=sliding2,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
         slider2.grid(row=2,column=1,padx=(1,5),pady=(1,1), columnspan=2)
-        def sliding3(value):
-            print(f'{value=}  deleting {imagesrefright[-1]=}')      
-            imagesreftop.pop()
-            imagestop.pop()
+        def sliding3(value):     
+            self.imagesreftop.pop()
+            self.imagestop.pop()
             value=int(value)
             if value>=100:
                 value=99
             valueB = value+10
             if valueB >= 110:
                 valueB=109
-            # self.offset=value
-            # leftend=80-self.bounds+value-50
-            # if leftend<=1:
-            #     leftend=1
-            # rightstart=90+self.bounds+value-50
-            # if rightstart>=169:
-            #     rightstart=169
-            # create_rectangle_left(0, 0, leftend, 110, fill='lightgreen', alpha=.3)
-            # create_rectangle_right(rightstart, 0, 170, 110, fill='red', alpha=.3)
             create_rectangle_top(0, value, 170, valueB, fill='#00ffff', alpha=.3)
         slider3 = customtkinter.CTkSlider(frame2,from_=0,to=110,command=sliding3,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
         slider3.grid(row=3,column=1,padx=(1,5),pady=(1,1), columnspan=2)
         slider3.set(10)
 
         def sliding4(value):
-            print(f'{value=}  deleting {imagesrefright[-1]=}')      
-            imagesrefbtm.pop()
-            imagesbtm.pop()
+            self.imagesrefbtm.pop()
+            self.imagesbtm.pop()
             value=int(value)
-            # self.offset=value
-            # leftend=80-self.bounds+value-50
-            # if leftend<=1:
-            #     leftend=1
-            # rightstart=90+self.bounds+value-50
-            # if rightstart>=169:
-            #     rightstart=169
-            # create_rectangle_left(0, 0, leftend, 110, fill='lightgreen', alpha=.3)
-            # create_rectangle_right(rightstart, 0, 170, 110, fill='red', alpha=.3)
             create_rectangle_btm(0, value, 170, 110, fill='maroon', alpha=.7)
         slider4 = customtkinter.CTkSlider(frame2,from_=0,to=110,command=sliding4,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
         slider4.grid(row=4,column=1,padx=(1,5),pady=(1,1), columnspan=2)
         slider4.set(100)
 
-        spinbox1 = tkinter.Spinbox(frame2, from_=0, to=10, width=10, bg='#11aaaa')
+        # spinbox1 = tkinter.Spinbox(frame2, from_=0, to=10, width=10, bg='#142455', fg='white')
+        # spinbox1 = tkinter.Spinbox(frame2, from_=0, to=10, width=10, bg='#11aaaa')
+        # spinbox1 = tkinter.Spinbox(frame2, from_=0, to=10, width=10, bg='transparent')
+        spinbox1 = tkinter.Spinbox(frame2, from_=0, to=10, width=10, bg='#212121', fg='white', buttonbackground='#212121', bd=0)
         spinbox1.grid(row=5,column=2,padx=(1,5),pady=(1,1))
 
-        frameright1 = customtkinter.CTkFrame(frameright, fg_color='#123fff', height=47, width=170)
+        # frameright1 = customtkinter.CTkFrame(frameright, fg_color='#123fff', height=47, width=170)
+        frameright1 = customtkinter.CTkFrame(frameright, fg_color='transparent', height=47, width=170)
         frameright1.grid_propagate(False)
-        # frameright1.grid_rowconfigure(0, weight=2)
-        # frameright1.grid_rowconfigure(1, weight=3)
         frameright1.grid(row=0,column=0,padx=(1,1),pady=(0,0))
-        frameright2 = customtkinter.CTkFrame(frameright, fg_color='#f231ff', height=110, width=170)
+        # frameright2 = customtkinter.CTkFrame(frameright, fg_color='#f231ff', height=110, width=170)
+        frameright2 = customtkinter.CTkFrame(frameright, fg_color='transparent', height=110, width=170)
         frameright2.grid_propagate(False)
-        # # frameright2.rowconfigure(0, weight=1)
-        # # frameright2.columnconfigure(0, weight=1)
-        # frameright2.grid_rowconfigure(0, weight=1)
-        # frameright2.grid_columnconfigure(0, weight=1)
-        # frameright2.pack(padx=(1,1),pady=(0,0))
         frameright2.grid(row=1,column=0,padx=(1,1),pady=(0,0))
-        frameright3 = customtkinter.CTkFrame(frameright, fg_color='#12ff1f', height=20, width=170)
+        # frameright3 = customtkinter.CTkFrame(frameright, fg_color='#12ff1f', height=20, width=170)
+        frameright3 = customtkinter.CTkFrame(frameright, fg_color='transparent', height=20, width=170)
         frameright3.grid_propagate(False)
         frameright3.grid_rowconfigure(0, weight=1)
         frameright3.grid_columnconfigure(0, weight=1)
@@ -291,33 +438,17 @@ class Decepticlone(customtkinter.CTk):
         combobox1 = customtkinter.CTkComboBox(frameright1, values=comboboxvalue, command=combobox1function, height=25, width=130)
         combobox1.grid(row=1,column=0,padx=(2,0),pady=(0,0), sticky='W')
 
-        # frame2image = customtkinter.CTkImage(light_image=Image.open('minimap.png'), dark_image=Image.open('minimap.png'), size=(170,110))
         canvas = tkinter.Canvas(frameright2, borderwidth=0, highlightthickness=0, relief='ridge')
-        # canvas.pack(padx=(0,0),pady=(0,0), anchor='nw', fill='both', expand=1)
         canvas.grid(row=0,column=0,padx=(0,0),pady=(0,0), sticky='nw')
         image = Image.open('minimap.png')
         imageresized = image.resize((170,110), Image.LANCZOS)
-        imagetk = ImageTk.PhotoImage(imageresized)
-        # canvas.create_image(0,0,image=imagetk)
-        canvas.create_image(0,0,image=imagetk, anchor='nw')
-        # frame2label = customtkinter.CTkLabel(frameright2, text='', image=frame2image)
-        # frame2label.grid(row=1,column=0,padx=(0,0),pady=(0,0), sticky='W')
-        
-        # def transparent():
-        #     alpha = int(.5 * 255)
-        #     fill = self.winfo_rgb('green') + (alpha,)
-        #     image = Image.new('RGBA', (100-10, 200-10), fill)
-        #     images=[]
-        #     images.append(ImageTk.PhotoImage(image))
-        #     canvas.create_image(10, 100, image=images[-1], anchor='nw')
-        #     canvas.create_rectangle(10, 10, 100, 200)
-            
-        images=[] # prevent garbage collected because PYTHON!!!!!
-        imagesleft=[] # prevent garbage collected because PYTHON!!!!!
-        imagesright=[] # prevent garbage collected because PYTHON!!!!!
-        imagesref=[]
-        imagesrefleft=[]
-        imagesrefright=[]
+        self.imagetk = ImageTk.PhotoImage(imageresized)
+        canvas.create_image(0,0,image=self.imagetk, anchor='nw')
+
+        self.imagesleft=[] # prevent garbage collected because PYTHON!!!!!
+        self.imagesright=[] # prevent garbage collected because PYTHON!!!!!
+        self.imagesrefleft=[]
+        self.imagesrefright=[]
         ## https://stackoverflow.com/questions/54637795/how-to-make-a-tkinter-canvas-rectangle-transparent
         def create_rectangle_left(x1, y1, x2, y2, **kwargs):
             if 'alpha' in kwargs:
@@ -326,10 +457,9 @@ class Decepticlone(customtkinter.CTk):
                 fill = self.winfo_rgb(fill) + (alpha,)
                 image = Image.new('RGBA', (x2-x1, y2-y1), fill)
                 image = ImageTk.PhotoImage(image)
-                imagesleft.append(image)
+                self.imagesleft.append(image)
                 imageref = canvas.create_image(x1, y1, image=image, anchor='nw')
-                imagesrefleft.append(imageref)
-                print(imagesrefleft, len(imagesrefleft))
+                self.imagesrefleft.append(imageref)
         def create_rectangle_right(x1, y1, x2, y2, **kwargs):
             if 'alpha' in kwargs:
                 alpha = int(kwargs.pop('alpha') * 255)
@@ -337,15 +467,14 @@ class Decepticlone(customtkinter.CTk):
                 fill = self.winfo_rgb(fill) + (alpha,)
                 image = Image.new('RGBA', (x2-x1, y2-y1), fill)
                 image = ImageTk.PhotoImage(image)
-                imagesright.append(image)
+                self.imagesright.append(image)
                 imageref = canvas.create_image(x1, y1, image=image, anchor='nw')
-                imagesrefright.append(imageref)
-                print(imagesrefright, len(imagesrefright))
+                self.imagesrefright.append(imageref)
                 
-        imagestop=[] # prevent garbage collected because PYTHON!!!!!
-        imagesbtm=[] # prevent garbage collected because PYTHON!!!!!
-        imagesreftop=[]
-        imagesrefbtm=[]
+        self.imagestop=[] # prevent garbage collected because PYTHON!!!!!
+        self.imagesbtm=[] # prevent garbage collected because PYTHON!!!!!
+        self.imagesreftop=[]
+        self.imagesrefbtm=[]
         def create_rectangle_top(x1, y1, x2, y2, **kwargs):
             if 'alpha' in kwargs:
                 alpha = int(kwargs.pop('alpha') * 255)
@@ -353,22 +482,19 @@ class Decepticlone(customtkinter.CTk):
                 fill = self.winfo_rgb(fill) + (alpha,)
                 image = Image.new('RGBA', (x2-x1, y2-y1), fill)
                 image = ImageTk.PhotoImage(image)
-                imagestop.append(image)
+                self.imagestop.append(image)
                 imageref = canvas.create_image(x1, y1, image=image, anchor='nw')
-                imagesreftop.append(imageref)
+                self.imagesreftop.append(imageref)
         def create_rectangle_btm(x1, y1, x2, y2, **kwargs):
             if 'alpha' in kwargs:
                 alpha = int(kwargs.pop('alpha') * 255)
-                fill = kwargs.pop('fill')                
-                winforgb = self.winfo_rgb(fill)
+                fill = kwargs.pop('fill')
                 fill = self.winfo_rgb(fill) + (alpha,)
-                # fill = (63325, 52535, 47568)+(179,)
-                # print(winforgb, fill)
                 image = Image.new('RGBA', (x2-x1, y2-y1), fill)
                 image = ImageTk.PhotoImage(image)
-                imagesbtm.append(image)
+                self.imagesbtm.append(image)
                 imageref = canvas.create_image(x1, y1, image=image, anchor='nw')
-                imagesrefbtm.append(imageref)
+                self.imagesrefbtm.append(imageref)
 
         leftend=80-self.bounds+self.offset-50
         if leftend<=1:
@@ -380,24 +506,19 @@ class Decepticlone(customtkinter.CTk):
         create_rectangle_right(rightstart, 0, 170, 110, fill='red', alpha=.3)
         create_rectangle_top(0, 10, 170, 25, fill='#00ffff', alpha=.3)
         create_rectangle_btm(0, 110-10, 170, 110, fill='maroon', alpha=.7)
-        # create_rectangle_btm(0, 100-10, 170, 110, fill='purple', alpha=.6)
-        # create_rectangle_btm(0, 100-10, 170, 110, fill='goldenrod', alpha=.8)
-        # create_rectangle_btm(0, 100-10, 170, 110, fill='gold', alpha=.5)
-        # # create_rectangle(50, 50, 250, 150, fill='green', alpha=.5)
-        # # create_rectangle(80, 80, 150, 120, fill='#800000', alpha=.8)
-        # # create_rectangle(10, 10, 100, 100, fill='#89abcd', alpha=.9)
-        # create_rectangle_left(0, 0, 50, 110, fill='lightgreen', alpha=.3)
-        # create_rectangle_right(120, 0, 170, 110, fill='red', alpha=.3)
 
         frameright3label1 = customtkinter.CTkLabel(frameright3, text='PAUSED Cycle 2', fg_color='transparent', font=('Helvetica',11, 'bold'), text_color='green', anchor='center')
         frameright3label1.grid(row=0,column=0,padx=(0,0),pady=(0,0), sticky='nsew')
         
-        self.mainloop()
-
 
 
 async def main():
     decepticlone = Decepticlone()
+    decepticlone.setup_tab1()
+    decepticlone.setup_tab2()
+    decepticlone.setup_tab3()
+    # decepticlone.after(3,decepticlone.mainloop())
+    decepticlone.mainloop()
 
 
 if __name__ == "__main__":
