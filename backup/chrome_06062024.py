@@ -114,7 +114,7 @@ class Decepticlone(customtkinter.CTk):
         self.tab_4 = tabview.add("Settings")
         self.tab_5 = tabview.add("Modules")
         self.tab_6 = tabview.add("+")
-        tabview.set("Controls")
+        tabview.set("+")
 
     def setup_tab6(self):
         frame1 = customtkinter.CTkFrame(self.tab_6, fg_color='transparent', width=180, height=216, corner_radius=5)
@@ -217,47 +217,47 @@ class Decepticlone(customtkinter.CTk):
             label3.grid(row=6+i,column=1,columnspan=2,padx=(2,0),pady=(4,0), sticky='w')
 
     def setup_tab5(self):
-        frame1 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=127, height=216, corner_radius=5)
-        # frame1 = customtkinter.CTkFrame(self.tab_5, fg_color='#1a7567', width=127, height=216, corner_radius=5)
+        # frame1 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=200, height=256, corner_radius=5)
+        frame1 = customtkinter.CTkFrame(self.tab_5, fg_color='#1a7567', width=127, height=216, corner_radius=5)
         frame1.grid_propagate(False)
         frame1.grid(row=0,column=0,padx=0,pady=0)
-        frame2 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=127, height=216, corner_radius=5)
-        # frame2 = customtkinter.CTkFrame(self.tab_5, fg_color='#ac4ff3', width=127, height=216, corner_radius=5)
+        # frame2 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=170, height=256, corner_radius=5)
+        frame2 = customtkinter.CTkFrame(self.tab_5, fg_color='#ac4ff3', width=127, height=216, corner_radius=5)
         frame2.grid_propagate(False)
         # frame2.grid_columnconfigure(2,weight=1)
         frame2.grid(row=0,column=1, padx=0,pady=0)
-        frame3 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=136, height=216, corner_radius=5)
-        # frame3 = customtkinter.CTkFrame(self.tab_5, fg_color='#9b3ea4', width=136, height=216, corner_radius=5)
+        # frame3 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=170, height=256, corner_radius=5)
+        frame3 = customtkinter.CTkFrame(self.tab_5, fg_color='#9b3ea4', width=136, height=216, corner_radius=5)
         frame3.grid_propagate(False)
         # frame3.grid_columnconfigure(2,weight=1)
         frame3.grid(row=0,column=2, padx=0,pady=0)
-
-        frame1a = customtkinter.CTkFrame(frame1, fg_color='transparent', width=123, height=40, corner_radius=5)
-        # frame1a = customtkinter.CTkFrame(frame1, fg_color='#2b7362', width=123, height=40, corner_radius=5)
+        
+        # frame1 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=200, height=256, corner_radius=5)
+        frame1a = customtkinter.CTkFrame(frame1, fg_color='#2b7362', width=123, height=40, corner_radius=5)
         frame1a.grid_propagate(False)
         frame1a.grid(row=0,column=0,padx=(2,0),pady=(2,0))
-        frame2a = customtkinter.CTkFrame(frame2, fg_color='transparent', width=123, height=40, corner_radius=5)
-        # frame2a = customtkinter.CTkFrame(frame2, fg_color='#ca1bf8', width=123, height=40, corner_radius=5)
+        # frame2 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=170, height=256, corner_radius=5)
+        frame2a = customtkinter.CTkFrame(frame2, fg_color='#ca1bf8', width=123, height=40, corner_radius=5)
         frame2a.grid_propagate(False)
         # frame2.grid_columnconfigure(2,weight=1)
         frame2a.grid(row=0,column=0, padx=(2,0),pady=(2,0))
-        frame3a = customtkinter.CTkFrame(frame3, fg_color='transparent', width=132, height=40, corner_radius=5)
-        # frame3a = customtkinter.CTkFrame(frame3, fg_color='#8a1fb5', width=132, height=40, corner_radius=5)
+        # frame3 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=170, height=256, corner_radius=5)
+        frame3a = customtkinter.CTkFrame(frame3, fg_color='#8a1fb5', width=132, height=40, corner_radius=5)
         frame3a.grid_propagate(False)
         # frame3.grid_columnconfigure(2,weight=1)
         frame3a.grid(row=0,column=0, padx=(2,0),pady=(2,0))
 
-        frame1b = customtkinter.CTkFrame(frame1, fg_color='transparent', width=126, height=175, corner_radius=5)
-        # frame1b = customtkinter.CTkFrame(frame1, fg_color='#2b3762', width=126, height=175, corner_radius=5)
+        # frame1 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=200, height=256, corner_radius=5)
+        frame1b = customtkinter.CTkFrame(frame1, fg_color='#2b3762', width=126, height=175, corner_radius=5)
         frame1b.grid_propagate(False)
         frame1b.grid(row=1,column=0,padx=0,pady=0)
-        frame2b = customtkinter.CTkFrame(frame2, fg_color='transparent', width=126, height=175, corner_radius=5)
-        # frame2b = customtkinter.CTkFrame(frame2, fg_color='#9a6178', width=126, height=175, corner_radius=5)
+        # frame2 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=170, height=256, corner_radius=5)
+        frame2b = customtkinter.CTkFrame(frame2, fg_color='#9a6178', width=126, height=175, corner_radius=5)
         frame2b.grid_propagate(False)
         # frame2.grid_columnconfigure(2,weight=1)
         frame2b.grid(row=1,column=0, padx=0,pady=0)
-        frame3b = customtkinter.CTkFrame(frame3, fg_color='transparent', width=135, height=175, corner_radius=5)
-        # frame3b = customtkinter.CTkFrame(frame3, fg_color='#8a4165', width=135, height=175, corner_radius=5)
+        # frame3 = customtkinter.CTkFrame(self.tab_5, fg_color='transparent', width=170, height=256, corner_radius=5)
+        frame3b = customtkinter.CTkFrame(frame3, fg_color='#8a4165', width=135, height=175, corner_radius=5)
         frame3b.grid_propagate(False)
         # frame3.grid_columnconfigure(2,weight=1)
         frame3b.grid(row=1,column=0, padx=0,pady=0)
@@ -346,7 +346,7 @@ class Decepticlone(customtkinter.CTk):
 
 
     def setup_tab4(self):
-        frame = customtkinter.CTkScrollableFrame(self.tab_4, fg_color='transparent', width=370, height=190, corner_radius=5)
+        frame = customtkinter.CTkScrollableFrame(self.tab_4, fg_color='transparent', width=370, height=200, corner_radius=5)
         # frame = customtkinter.CTkScrollableFrame(self.tab_4, fg_color='#123fff', width=370, height=200, corner_radius=5)
         # frame.grid_propagate(False)
         frame._scrollbar.configure(height=0)
@@ -394,8 +394,7 @@ class Decepticlone(customtkinter.CTk):
                 else:
                     self.toplevel_window.focus()  # if window exists focus it
             button1 = customtkinter.CTkButton(master, width=width, height=20, border_width=0, text='', command=lambda: button_command1(),
-            # font=('Lucida Console', 10), fg_color='#0bbdb3')
-            font=('Arial', 11), fg_color='#0bbdb3', text_color='#010101', corner_radius=6)
+            font=('Lucida Console', 10), fg_color='#0bbdb3')
             return button1
 
         # self.buttonlist1=[]
@@ -405,7 +404,7 @@ class Decepticlone(customtkinter.CTk):
         frame_.grid_propagate(False)
         frame_.grid(row=0,column=0, padx=0,pady=0)
         button = create_button(frame_,button_id=0,width=19)            
-        button.grid(row=0,column=0,padx=(0,0),pady=(0,0), sticky='w')
+        button.grid(row=0,column=0,padx=(0,1),pady=(0,0), sticky='w')
         button2 = create_button(frame_,button_id=0,width=20)
         button2.grid(row=0,column=1,padx=0,pady=(0,0), sticky='w')
         label1 = create_label(frame1a,button_id=0,text='Keyboard/Mouse ID')
@@ -413,7 +412,7 @@ class Decepticlone(customtkinter.CTk):
         labellisttxt1 = ['NPC Key*', 'Teleport', 'Rope Connect', 'World Map*', 'Nearest Town Scroll']
         for i in range(5):
             button = create_button(frame1a,i)
-            button.grid(row=i+1,column=0,padx=0,pady=(1,0), sticky='w')
+            button.grid(row=i+1,column=0,padx=0,pady=(2,0), sticky='w')
             label1 = create_label(frame1a,i,text=labellisttxt1[i])
             label1.grid(row=i+1,column=1,padx=(5,0),pady=(0,0), sticky='w')
         labellisttxt2 = ['Panic Mode', 'CD Reduction', 'Player notification', 'Player Count', 'Buff Duration', 'HP/MP Threshold']
@@ -433,7 +432,7 @@ class Decepticlone(customtkinter.CTk):
         labellisttxt3 = ['Profession Key*', 'Potion Key*', 'Pet Food Key*', 'Jump Key*', 'Safety Charm Key', 'Cash Shop Key']
         for i in range(6):
             button = create_button(frame2a,i)            
-            button.grid(row=i,column=0,padx=0,pady=(1,0), sticky='w')
+            button.grid(row=i,column=0,padx=0,pady=(2,0), sticky='w')
             label1 = create_label(frame2a,i,text=labellisttxt3[i])
             label1.grid(row=i,column=1,padx=(5,0),pady=(0,0), sticky='w')
         labellisttxt4 = ['Have Battleroid?', 'Use Rope for farming?', 'Use combat up jump', 'Death notification', 'Face Outwards?', 
@@ -443,7 +442,7 @@ class Decepticlone(customtkinter.CTk):
             checkbox1.grid(row=i+6,column=0,padx=(5,0),pady=(0,0), sticky='w')
             self.checkboxlist1.append(checkbox1)
             label1 = create_label(frame2b,i,text=labellisttxt4[i], width=120)
-            label1.grid(row=i+6,column=1,padx=(5,0),pady=(0,2), sticky='w')
+            label1.grid(row=i+6,column=1,padx=(5,0),pady=(00,2), sticky='w')
 
 
 
@@ -476,8 +475,7 @@ class Decepticlone(customtkinter.CTk):
                 else:
                     self.toplevel_window.focus()  # if window exists focus it
             button1 = customtkinter.CTkButton(master, width=30, height=20, border_width=0, text='', command=lambda: button_command1(),
-            # font=('Lucida Console', 10), fg_color='#0bbdb3')
-            font=('Arial', 11), fg_color='#0bbdb3', text_color='#010101', corner_radius=6)
+            font=('Lucida Console', 10), fg_color='#0bbdb3')
             return button1
         self.buttonlist1=[]
         self.entrylist1=[]
@@ -550,202 +548,120 @@ class Decepticlone(customtkinter.CTk):
 
 
     def setup_tab2(self):
-        frame1 = customtkinter.CTkFrame(self.tab_2, fg_color='transparent', width=195, height=70, corner_radius=5)
-        # frame1 = customtkinter.CTkFrame(self.tab_2, fg_color='green', width=195, height=70, corner_radius=5)
-        frame1.grid_propagate(False)
+        frame1 = customtkinter.CTkFrame(self.tab_2, fg_color='green', width=170, height=70, corner_radius=5)
+        # frame1.grid_propagate(False)
         frame1.grid_columnconfigure(0,weight=1)
         frame1.grid_columnconfigure(1,weight=1)
         frame1.grid(row=0,column=0,padx=0,pady=0)
-        frame2 = customtkinter.CTkFrame(self.tab_2, fg_color='transparent', width=195, height=130, corner_radius=5)
-        # frame2 = customtkinter.CTkFrame(self.tab_2, fg_color='lime', width=195, height=130, corner_radius=5)
+        # # frame2 = customtkinter.CTkFrame(self.tab_2, fg_color='transparent', width=170, height=110, corner_radius=5)
+        frame2 = customtkinter.CTkFrame(self.tab_2, fg_color='lime', width=170, height=130, corner_radius=5)
         frame2.grid_propagate(False)
         frame2.grid(row=1,column=0,padx=0,pady=0)
-        frame3 = customtkinter.CTkFrame(self.tab_2, fg_color='transparent', width=195, height=200, corner_radius=5)
-        # frame3 = customtkinter.CTkFrame(self.tab_2, fg_color='khaki', width=195, height=200, corner_radius=5)
+        frame3 = customtkinter.CTkFrame(self.tab_2, fg_color='khaki', width=170, height=200, corner_radius=5)
         frame3.grid_propagate(False)
         frame3.grid_columnconfigure(0, weight=1)
         frame3.grid_columnconfigure(1, weight=1)
         frame3.grid(row=0,column=1, rowspan=2, padx=0,pady=0)
 
-        
-        def create_label(master,button_id,text='Custom Slot',width=30,anchor='w'):
-            label1 = customtkinter.CTkLabel(master, text=text, text_color="white", font=("Arial", 12),
-            # height=11, anchor=anchor, bg_color='#fabcd3',width=width)
-            height=11, anchor=anchor, bg_color='transparent',width=width)
-            return label1
-        def create_checkbox(master,button_id,bd_width=0,bd_color='#3a8b83'):
-            checkbox1 = bumblebeetkinter.CTkCheckBox(master, width=11, height=11, checkbox_width=12, checkbox_height=12, 
-            border_width=bd_width, border_color=bd_color, corner_radius=0, checkmark_color='#424041', fg_color='#0bbdb3', bg_color='#424041')
-            return checkbox1
-        def create_button(master,button_id,width=40,text=None):
-            def button_command1():
-                if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
-                    self.toplevel_window = ToplevelWindow(mylabeltext2=f'{button_id}')  # create window if its None or destroyed
-                    button1.configure(text=f'{button_id}')
-                else:
-                    self.toplevel_window.focus()  # if window exists focus it
-            button1 = customtkinter.CTkButton(master, width=width, height=20, border_width=0, text=text, command=lambda: button_command1(),
-            font=('Arial', 11), fg_color='#0bbdb3', text_color='#010101', corner_radius=6)
-            return button1
-        def create_slider(master):            
-            def sliding(value):
-                value=int(value)
-                print(value)
-            slider1 = customtkinter.CTkSlider(master,from_=0,to=80,command=sliding,number_of_steps=100,width=95,height=10,
-            fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
-            return slider1
-
-
-        label1 = customtkinter.CTkLabel(frame1, text='Class Required Skills', font=('Arial', 12, 'bold'), height=18,text_color='#0e8783')
-        label1.grid(row=0,column=0, padx=4,pady=(0,2), sticky='w')
-        sframe1 = customtkinter.CTkScrollableFrame(frame1, fg_color='transparent', width=173, height=43, corner_radius=5, border_width=0)
-        sframe1.grid(row=1,column=0,padx=0,pady=0)
+        label1 = customtkinter.CTkLabel(frame1, text='Class Required Skills', font=('Arial', 12, 'bold'), height=18)
+        label1.grid(row=0,column=0, padx=4,pady=0, sticky='w')
+        sframe1 = customtkinter.CTkScrollableFrame(frame1, fg_color='purple', width=146, height=40, corner_radius=5, border_width=0)
+        sframe1.grid(row=1,column=0,padx=1,pady=0)
         sframe1._scrollbar.configure(height=0)
-        # # sframe1.grid_rowconfigure(0, weight=1)
-        # # sframe1.grid_columnconfigure(0, weight=1)
-        # # sframe1.grid_columnconfigure(1, weight=1)
-        # # sframe1.grid_columnconfigure(2, weight=1)
-        labellist1=['Mobbing','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion']
+        # sframe1.grid_rowconfigure(0, weight=1)
+        # sframe1.grid_columnconfigure(0, weight=1)
+        # sframe1.grid_columnconfigure(1, weight=1)
+        # sframe1.grid_columnconfigure(2, weight=1)
         self.entrylist=[]
-        for i in range(len(labellist1)):
-            button = create_button(sframe1,i,text='',width=40)
-            button.grid(row=i,column=0,padx=(0,4),pady=(0,2), sticky='nw')
-            # entry1 = customtkinter.CTkEntry(sframe1, width=40, height=20, justify='center')
-            # entry1.grid(row=i,column=0,padx=0,pady=(0,0), sticky='nw')
-            # self.entrylist.append(entry1)
+        for i in range(20):
+            entry1 = customtkinter.CTkEntry(sframe1, width=40, height=20, justify='center')
+            entry1.grid(row=i,column=0,padx=0,pady=(0,0), sticky='nw')
+            self.entrylist.append(entry1)
             entrylabel1 = customtkinter.CTkLabel(sframe1, width=100, height=20, text=f'{i}', fg_color='black', anchor='w')
             entrylabel1.grid(row=i,column=1,padx=2,pady=(1,0), sticky='nw')
 
         label2 = customtkinter.CTkLabel(frame2, text='Class Skills', font=('Arial', 12, 'bold'), height=18, text_color='#0e8783')
         label2.grid(row=0,column=0, padx=4,pady=0, sticky='w')
-        sframe2 = customtkinter.CTkScrollableFrame(frame2, fg_color='transparent', width=173, height=102, corner_radius=5, border_width=0)
-        sframe2.grid(row=1,column=0,padx=0,pady=0)
+        sframe2 = customtkinter.CTkScrollableFrame(frame2, fg_color='purple', width=146, height=100, corner_radius=5, border_width=0)
+        sframe2.grid(row=1,column=0,padx=1,pady=0)
         sframe2._scrollbar.configure(height=0)
-        labellist2=['Mobbing','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion',
-        'Mobbing','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion']
         self.entrylist2=[]
-        for i in range(len(labellist2)):
-            button = create_button(sframe2,i,text='',width=40)
-            button.grid(row=i,column=0,padx=(0,4),pady=(0,2), sticky='nw')
-            # entry2 = customtkinter.CTkEntry(sframe2, width=40, height=20, justify='center')
-            # entry2.grid(row=i,column=0,padx=0,pady=(0,0), sticky='nw')
-            # self.entrylist2.append(entry2)
+        for i in range(20):
+            entry2 = customtkinter.CTkEntry(sframe2, width=40, height=20, justify='center')
+            entry2.grid(row=i,column=0,padx=0,pady=(0,0), sticky='nw')
+            self.entrylist2.append(entry2)
             entrylabel2 = customtkinter.CTkLabel(sframe2, width=100, height=20, text=f'{i}', fg_color='black', anchor='w')
             entrylabel2.grid(row=i,column=1,padx=2,pady=(1,0), sticky='nw')
 
-        label3 = customtkinter.CTkLabel(frame3, text='Optional Skills', font=('Arial', 12, 'bold'), height=18, 
-        text_color='#0e8783', fg_color='transparent')
-        label3.grid(row=0,column=0, padx=(1,0),pady=0, sticky='nw')
-        button3 = customtkinter.CTkButton(frame3, text='Skill Editor', font=('Arial', 11, 'bold'), width=60, 
-        height=12, text_color='#0e8783', fg_color='black')
-        button3.grid(row=0,column=1, padx=(0,3),pady=0, sticky='e')
-        sframe3 = customtkinter.CTkScrollableFrame(frame3, fg_color='transparent', width=173, height=170, corner_radius=5, border_width=0)
-        sframe3.grid(row=1,column=0,columnspan=2,padx=0,pady=0)
+        label3 = customtkinter.CTkLabel(frame3, text='Optional Skills', font=('Arial', 12, 'bold'), height=18, text_color='#0e8783', fg_color='black')
+        label3.grid(row=0,column=0, padx=(1,0),pady=0, sticky='w')
+        button3 = customtkinter.CTkButton(frame3, text='Skill Editor', font=('Arial', 12, 'bold'), width=60, height=18, text_color='#0e8783', fg_color='black')
+        button3.grid(row=0,column=1, padx=1,pady=0, sticky='e')
+        sframe3 = customtkinter.CTkScrollableFrame(frame3, fg_color='purple', width=146, height=168, corner_radius=5, border_width=0)
+        sframe3.grid(row=1,column=0,columnspan=2,padx=1,pady=0)
         sframe3._scrollbar.configure(height=0)
-        labellist3=['Mobbing','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion',
-        'Mobbing','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion','Meso Explosion']
         self.entrylist3=[]
-        for i in range(len(labellist2)):
-            button = create_button(sframe3,i,text='',width=40)
-            button.grid(row=i,column=0,padx=(0,4),pady=(0,2), sticky='nw')
-            # entry3 = customtkinter.CTkEntry(sframe3, width=40, height=20, justify='center')
-            # entry3.grid(row=i,column=0,padx=0,pady=(0,0), sticky='nw')
-            # self.entrylist3.append(entry2)
+        for i in range(20):
+            entry3 = customtkinter.CTkEntry(sframe3, width=40, height=20, justify='center')
+            entry3.grid(row=i,column=0,padx=0,pady=(0,0), sticky='nw')
+            self.entrylist3.append(entry2)
             entrylabel3 = customtkinter.CTkLabel(sframe3, width=100, height=20, text=f'{i}', fg_color='black', anchor='w')
             entrylabel3.grid(row=i,column=1,padx=2,pady=(1,0), sticky='nw')
 
 
+        pass
+        # self.mainloop()
+
     def setup_tab1(self):
         # frameleft = customtkinter.CTkFrame(self.tab_1, width=180, height=210, fg_color='transparent')
         # frameleft = customtkinter.CTkFrame(self.tab_1, fg_color='green', width=173, height=180, corner_radius=5)
-        # frameleft = customtkinter.CTkFrame(self.tab_1, fg_color='transparent', width=173, height=180, corner_radius=5)
-        frameleft = customtkinter.CTkFrame(self.tab_1, fg_color='transparent', width=195, height=200, corner_radius=5)
+        frameleft = customtkinter.CTkFrame(self.tab_1, fg_color='transparent', width=173, height=180, corner_radius=5)
         frameleft.grid_propagate(False)
         frameleft.rowconfigure(0,weight=1)
         frameleft.rowconfigure(1,weight=1)
-        frameleft.grid(row=0,column=0,padx=0,pady=0,sticky='nsew')
+        frameleft.grid(row=0,column=0,padx=0,pady=0)
         # frameright = customtkinter.CTkFrame(self.tab_1, fg_color='teal', width=173, height=180, corner_radius=5)
-        # frameright = customtkinter.CTkFrame(self.tab_1, fg_color='transparent', width=173, height=180, corner_radius=5)
-        frameright = customtkinter.CTkFrame(self.tab_1, fg_color='transparent', width=195, height=200, corner_radius=5)
+        frameright = customtkinter.CTkFrame(self.tab_1, fg_color='transparent', width=173, height=180, corner_radius=5)
         frameright.grid(row=0,column=1,padx=0,pady=0,sticky='nsew')
 
-        # # frame1 = customtkinter.CTkFrame(frameleft, fg_color='transparent', width=10, height=10)
-        # # frame1 = customtkinter.CTkFrame(frameleft, fg_color='blue', height=125, width=173)
-        frame1 = customtkinter.CTkFrame(frameleft, fg_color='transparent', width=194, height=65)
+        # frame1 = customtkinter.CTkFrame(frameleft, fg_color='transparent', width=10, height=10)
+        # frame1 = customtkinter.CTkFrame(frameleft, fg_color='blue', height=125, width=173)
+        frame1 = customtkinter.CTkFrame(frameleft, fg_color='transparent', height=125, width=173)
         frame1.grid_propagate(False)
-        # frame1.grid(row=0,column=0,padx=0,pady=0)
-        frame1.grid(row=0,column=0,padx=0,pady=0, sticky='n')
+        frame1.grid(row=0,column=0,padx=0,pady=0, sticky='nsew')
 
-        def create_label(master,button_id,text='Custom Slot',width=30,anchor='w'):
-            label1 = customtkinter.CTkLabel(master, text=text, text_color="white", font=("Arial", 12),
-            # height=11, anchor=anchor, bg_color='#fabcd3',width=width)
-            height=11, anchor=anchor, bg_color='transparent',width=width)
-            return label1
-        def create_checkbox(master,button_id,bd_width=0,bd_color='#3a8b83'):
-            checkbox1 = bumblebeetkinter.CTkCheckBox(master, width=11, height=11, checkbox_width=12, checkbox_height=12, 
-            border_width=bd_width, border_color=bd_color, corner_radius=0, checkmark_color='#424041', fg_color='#0bbdb3', bg_color='#424041')
-            return checkbox1
-        def create_button(master,button_id,width=40,text=None):
-            def button_command1():
-                if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
-                    self.toplevel_window = ToplevelWindow(mylabeltext2=f'{button_id}')  # create window if its None or destroyed
-                    button1.configure(text=f'{button_id}')
-                else:
-                    self.toplevel_window.focus()  # if window exists focus it
-            button1 = customtkinter.CTkButton(master, width=width, height=20, border_width=0, text=text, command=lambda: button_command1(),
-            font=('Arial', 11), fg_color='#0bbdb3', text_color='#010101', corner_radius=6)
-            return button1
-        def create_slider(master):            
-            def sliding(value):
-                value=int(value)
-                print(value)
-            slider1 = customtkinter.CTkSlider(master,from_=0,to=80,command=sliding,number_of_steps=100,width=95,height=10,
-            fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
-            return slider1
-            
         def startcmd():
             pass
+        button1 = customtkinter.CTkButton(frame1, text='Start', width=75, height=20, font=('Helvetica',11), corner_radius=10, command=startcmd)
+        button1.grid(row=0,column=0,padx=(3,3),pady=(4,2))
         def resetcmd():
             pass
-        button1 = customtkinter.CTkButton(frame1, text='Start', width=87, height=27, font=('Arial',11), 
-        fg_color='#0bbdb3', text_color='#010101', corner_radius=6, command=startcmd)
-        button1.grid(row=0,column=0,padx=(2,10),pady=(5,0))
-        button2 = customtkinter.CTkButton(frame1, text='Reset', width=87, height=27, font=('Arial',11),
-        fg_color='#0bbdb3', text_color='#010101', corner_radius=6,command=resetcmd)
-        button2.grid(row=0,column=1,padx=(0,3),pady=(5,0))
-        button3 = customtkinter.CTkButton(frame1, text='Pause', width=87, height=27, font=('Arial',11), 
-        fg_color='#0bbdb3', text_color='#010101', corner_radius=6)
-        button3.grid(row=1,column=0,padx=(2,10),pady=(5,0))
-        button4 = customtkinter.CTkButton(frame1, text='Town', width=87, height=27, font=('Arial',11), 
-        fg_color='#0bbdb3', text_color='#010101', corner_radius=6)
-        button4.grid(row=1,column=1,padx=(0,3),pady=(5,0))
+        button2 = customtkinter.CTkButton(frame1, text='Reset', width=75, height=20, font=('Helvetica',11), corner_radius=10, command=resetcmd)
+        button2.grid(row=0,column=1,padx=(3,3),pady=(4,2))
+        button3 = customtkinter.CTkButton(frame1, text='Pause', width=75, height=20, font=('Helvetica',11), corner_radius=10)
+        button3.grid(row=1,column=0,padx=(3,3),pady=(2,4))
+        button4 = customtkinter.CTkButton(frame1, text='Town', width=75, height=20, font=('Helvetica',11), corner_radius=10)
+        button4.grid(row=1,column=1,padx=(3,3),pady=(2,4))
 
-        # # frame2 = customtkinter.CTkFrame(frameleft, width=180, fg_color='transparent')
-        # # frame2 = customtkinter.CTkFrame(frameleft, fg_color='purple', width=173)
-        frame2 = customtkinter.CTkFrame(frameleft, fg_color='transparent', width=195, height=135)
+        # frame2 = customtkinter.CTkFrame(frameleft, width=180, fg_color='transparent')
+        # frame2 = customtkinter.CTkFrame(frameleft, fg_color='purple', width=173)
+        frame2 = customtkinter.CTkFrame(frameleft, fg_color='transparent', width=173)
         frame2.grid_propagate(False)
         frame2.columnconfigure(1,weight=1)
-        frame2.grid(row=1,column=0,columnspan=2,padx=0,pady=0)
         
-        label1 = customtkinter.CTkLabel(frame2, text='Map Controls', height=11, fg_color='transparent', font=("Arial", 12, 'bold'), 
-        text_color='white', anchor='w',bg_color='transparent',width=30)
-        label1.grid(row=0,column=0,padx=(3,3),pady=(7,0), sticky='W', columnspan=2)
-        label2 = customtkinter.CTkLabel(frame2, text='Bounds', height=11, fg_color='transparent', font=("Arial", 12), 
-        text_color='white', anchor='w',bg_color='transparent',width=30)
-        label2.grid(row=1,column=0,padx=(3,3),pady=(7,0), sticky='W')
-        label3 = customtkinter.CTkLabel(frame2, text='Offset', height=11, fg_color='transparent', font=("Arial", 12), 
-        text_color='white', anchor='w',bg_color='transparent',width=30)
-        label3.grid(row=2,column=0,padx=(3,3),pady=(7,0), sticky='W')
-        label4 = customtkinter.CTkLabel(frame2, text='Height', height=11, fg_color='transparent', font=("Arial", 12), 
-        text_color='white', anchor='w',bg_color='transparent',width=30)
-        label4.grid(row=3,column=0,padx=(3,3),pady=(7,0), sticky='W')
-        label5 = customtkinter.CTkLabel(frame2, text='Floor', height=11, fg_color='transparent', font=("Arial", 12), 
-        text_color='white', anchor='w',bg_color='transparent',width=30)
-        label5.grid(row=4,column=0,padx=(3,3),pady=(7,0), sticky='W')
-        label6 = customtkinter.CTkLabel(frame2, text='Pickup Cycles', height=11, fg_color='transparent', font=("Arial", 12), 
-        text_color='white', anchor='w',bg_color='transparent',width=30)
-        # text_color='white', anchor='w',bg_color='transparent',width=30)
-        label6.grid(row=5,column=0,padx=(3,3),pady=(7,0), sticky='W', columnspan=2)
+        frame2.grid(row=1,column=0,padx=0,pady=0, sticky='nsew')
+        label1 = customtkinter.CTkLabel(frame2, text='Map Controls', height=20, fg_color='transparent', font=('Helvetica',11, 'bold'), text_color='white', anchor='w')
+        label1.grid(row=0,column=0,padx=(3,3),pady=(0,0), sticky='W', columnspan=2)
+        label2 = customtkinter.CTkLabel(frame2, text='Bounds', height=20, fg_color='transparent', font=('Helvetica',11), text_color='white', anchor='w')
+        label2.grid(row=1,column=0,padx=(3,3),pady=(0,0), sticky='W')
+        label3 = customtkinter.CTkLabel(frame2, text='Offset', height=20, fg_color='transparent', font=('Helvetica',11), text_color='white', anchor='w')
+        label3.grid(row=2,column=0,padx=(3,3),pady=(0,0), sticky='W')
+        label4 = customtkinter.CTkLabel(frame2, text='Height', height=20, fg_color='transparent', font=('Helvetica',11), text_color='white', anchor='w')
+        label4.grid(row=3,column=0,padx=(3,3),pady=(0,0), sticky='W')
+        label5 = customtkinter.CTkLabel(frame2, text='Floor', height=20, fg_color='transparent', font=('Helvetica',11), text_color='white', anchor='w')
+        label5.grid(row=4,column=0,padx=(3,3),pady=(0,0), sticky='W')
+        label6 = customtkinter.CTkLabel(frame2, text='Pickup Cycles', height=20, fg_color='transparent', font=('Helvetica',11), text_color='white', anchor='w')
+        label6.grid(row=5,column=0,padx=(3,3),pady=(0,0), sticky='W', columnspan=2)
 
         # frame3 = customtkinter.CTkFrame(frame2, fg_color='magenta', height=20, width=80)
         frame3 = customtkinter.CTkFrame(frame2, fg_color='transparent', height=20, width=80)
@@ -754,15 +670,15 @@ class Decepticlone(customtkinter.CTk):
         frame3.columnconfigure(0, weight=1)
         frame3.grid(row=0,column=2,padx=(0,5),pady=(0,0), sticky='E')        
         button5 = customtkinter.CTkButton(frame3, text='', width=10, height=10, corner_radius=10, fg_color='#acbbbb')
-        button5.grid(row=0,column=1,padx=(2,0),pady=(6,0))
+        button5.grid(row=0,column=1,padx=(2,0),pady=(0,0))
         button6 = customtkinter.CTkButton(frame3, text='', width=10, height=10, corner_radius=10, fg_color='#acbbbb')
-        button6.grid(row=0,column=2,padx=(2,0),pady=(6,0))
+        button6.grid(row=0,column=2,padx=(2,0),pady=(0,0))
         button7 = customtkinter.CTkButton(frame3, text='', width=10, height=10, corner_radius=10, fg_color='#acbbbb')
-        button7.grid(row=0,column=3,padx=(2,0),pady=(6,0))
+        button7.grid(row=0,column=3,padx=(2,0),pady=(0,0))
         button8 = customtkinter.CTkButton(frame3, text='', width=10, height=10, corner_radius=10, fg_color='#acbbbb')
-        button8.grid(row=0,column=4,padx=(2,0),pady=(6,0))
+        button8.grid(row=0,column=4,padx=(2,0),pady=(0,0))
         button9 = customtkinter.CTkButton(frame3, text='', width=10, height=10, corner_radius=10, fg_color='#acbbbb')
-        button9.grid(row=0,column=5,padx=(2,4),pady=(6,0))
+        button9.grid(row=0,column=5,padx=(2,4),pady=(0,0))
 
         self.bounds=40
         self.offset=50
@@ -773,17 +689,16 @@ class Decepticlone(customtkinter.CTk):
             self.imagesright.pop()
             value=int(value)
             self.bounds=value
-            # leftend=80-self.bounds+self.offset-50
-            leftend=91-self.bounds+self.offset-50
+            leftend=80-self.bounds+self.offset-50
             if leftend<=1:
                 leftend=1
-            rightstart=101+self.bounds+self.offset-50
-            if rightstart>=193:
-                rightstart=193
-            create_rectangle_left(0, 0, leftend, 130, fill='lightgreen', alpha=.3)
-            create_rectangle_right(rightstart, 0, 193, 130, fill='red', alpha=.3)
+            rightstart=90+self.bounds+self.offset-50
+            if rightstart>=169:
+                rightstart=169
+            create_rectangle_left(0, 0, leftend, 110, fill='lightgreen', alpha=.3)
+            create_rectangle_right(rightstart, 0, 170, 110, fill='red', alpha=.3)
         slider1 = customtkinter.CTkSlider(frame2,from_=0,to=80,command=sliding,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
-        slider1.grid(row=1,column=1,padx=(1,5),pady=(9,0), columnspan=2)
+        slider1.grid(row=1,column=1,padx=(1,5),pady=(1,1), columnspan=2)
         def sliding2(value):
             self.imagesrefleft.pop()
             self.imagesleft.pop()
@@ -791,16 +706,16 @@ class Decepticlone(customtkinter.CTk):
             self.imagesright.pop()
             value=int(value)
             self.offset=value
-            leftend=91-self.bounds+value-50
+            leftend=80-self.bounds+value-50
             if leftend<=1:
                 leftend=1
-            rightstart=101+self.bounds+value-50
-            if rightstart>=193:
-                rightstart=193
-            create_rectangle_left(0, 0, leftend, 130, fill='lightgreen', alpha=.3)
-            create_rectangle_right(rightstart, 0, 193, 130, fill='red', alpha=.3)
+            rightstart=90+self.bounds+value-50
+            if rightstart>=169:
+                rightstart=169
+            create_rectangle_left(0, 0, leftend, 110, fill='lightgreen', alpha=.3)
+            create_rectangle_right(rightstart, 0, 170, 110, fill='red', alpha=.3)
         slider2 = customtkinter.CTkSlider(frame2,from_=0,to=100,command=sliding2,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
-        slider2.grid(row=2,column=1,padx=(1,5),pady=(9,0), columnspan=2)
+        slider2.grid(row=2,column=1,padx=(1,5),pady=(1,1), columnspan=2)
         def sliding3(value):     
             self.imagesreftop.pop()
             self.imagestop.pop()
@@ -808,48 +723,44 @@ class Decepticlone(customtkinter.CTk):
             if value>=100:
                 value=99
             valueB = value+10
-            if valueB >= 130:
-                valueB=129
-            create_rectangle_top(0, value, 193, valueB, fill='#00ffff', alpha=.3)
-        slider3 = customtkinter.CTkSlider(frame2,from_=0,to=130,command=sliding3,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
-        slider3.grid(row=3,column=1,padx=(1,5),pady=(9,0), columnspan=2)
+            if valueB >= 110:
+                valueB=109
+            create_rectangle_top(0, value, 170, valueB, fill='#00ffff', alpha=.3)
+        slider3 = customtkinter.CTkSlider(frame2,from_=0,to=110,command=sliding3,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
+        slider3.grid(row=3,column=1,padx=(1,5),pady=(1,1), columnspan=2)
         slider3.set(10)
 
         def sliding4(value):
             self.imagesrefbtm.pop()
             self.imagesbtm.pop()
             value=int(value)
-            create_rectangle_btm(0, value, 193, 130, fill='maroon', alpha=.7)
-        slider4 = customtkinter.CTkSlider(frame2,from_=0,to=130,command=sliding4,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
-        slider4.grid(row=4,column=1,padx=(1,5),pady=(9,0), columnspan=2)
+            create_rectangle_btm(0, value, 170, 110, fill='maroon', alpha=.7)
+        slider4 = customtkinter.CTkSlider(frame2,from_=0,to=110,command=sliding4,number_of_steps=100,width=150,height=10,fg_color='#11aaaa',progress_color='green',button_color='yellow',button_hover_color='orange')
+        slider4.grid(row=4,column=1,padx=(1,5),pady=(1,1), columnspan=2)
         slider4.set(100)
 
         # spinbox1 = tkinter.Spinbox(frame2, from_=0, to=10, width=10, bg='#142455', fg='white')
         # spinbox1 = tkinter.Spinbox(frame2, from_=0, to=10, width=10, bg='#11aaaa')
         # spinbox1 = tkinter.Spinbox(frame2, from_=0, to=10, width=10, bg='transparent')
         spinbox1 = tkinter.Spinbox(frame2, from_=0, to=10, width=10, bg='#212121', fg='white', buttonbackground='#212121', bd=0)
-        spinbox1.grid(row=5,column=2,padx=(1,5),pady=(9,0))
+        spinbox1.grid(row=5,column=2,padx=(1,5),pady=(1,1))
 
-        # frameright1 = customtkinter.CTkFrame(frameright, fg_color='#123fff', height=50, width=194)
-        frameright1 = customtkinter.CTkFrame(frameright, fg_color='transparent', height=50, width=194)
+        # frameright1 = customtkinter.CTkFrame(frameright, fg_color='#123fff', height=47, width=170)
+        frameright1 = customtkinter.CTkFrame(frameright, fg_color='transparent', height=47, width=170)
         frameright1.grid_propagate(False)
-        frameright1.grid(row=0,column=0,padx=(0,0),pady=(0,0))
-        # frameright2 = customtkinter.CTkFrame(frameright, fg_color='#f231ff', height=130, width=194)
-        frameright2 = customtkinter.CTkFrame(frameright, fg_color='transparent', height=130, width=194)
+        frameright1.grid(row=0,column=0,padx=(1,1),pady=(0,0))
+        # frameright2 = customtkinter.CTkFrame(frameright, fg_color='#f231ff', height=110, width=170)
+        frameright2 = customtkinter.CTkFrame(frameright, fg_color='transparent', height=110, width=170)
         frameright2.grid_propagate(False)
-        frameright2.grid(row=1,column=0,padx=(0,0),pady=(0,0))
-        # frameright3 = customtkinter.CTkFrame(frameright, fg_color='#12ff1f', height=20, width=194)
-        frameright3 = customtkinter.CTkFrame(frameright, fg_color='transparent', height=20, width=194)
+        frameright2.grid(row=1,column=0,padx=(1,1),pady=(0,0))
+        # frameright3 = customtkinter.CTkFrame(frameright, fg_color='#12ff1f', height=20, width=170)
+        frameright3 = customtkinter.CTkFrame(frameright, fg_color='transparent', height=20, width=170)
         frameright3.grid_propagate(False)
         frameright3.grid_rowconfigure(0, weight=1)
         frameright3.grid_columnconfigure(0, weight=1)
-        frameright3.grid(row=2,column=0,padx=(0,0),pady=(0,0))
+        frameright3.grid(row=2,column=0,padx=(1,1),pady=(0,0))
 
-
-
-
-        framerightlabel1 = customtkinter.CTkLabel(frameright1, text='Mobbing Algorithm', fg_color='transparent', font=('Helvetica',11, 'bold'), 
-        text_color='white', anchor='w', height=20)
+        framerightlabel1 = customtkinter.CTkLabel(frameright1, text='Mobbing Algorithm', fg_color='transparent', font=('Helvetica',11, 'bold'), text_color='white', anchor='w', height=20)
         framerightlabel1.grid(row=0,column=0,padx=(5,0),pady=(0,0), sticky='W')
         def combobox1function(value):
             print(f'comboboxfunction')
@@ -860,7 +771,7 @@ class Decepticlone(customtkinter.CTk):
         canvas = tkinter.Canvas(frameright2, borderwidth=0, highlightthickness=0, relief='ridge')
         canvas.grid(row=0,column=0,padx=(0,0),pady=(0,0), sticky='nw')
         image = Image.open('minimap.png')
-        imageresized = image.resize((194,130), Image.LANCZOS)
+        imageresized = image.resize((170,110), Image.LANCZOS)
         self.imagetk = ImageTk.PhotoImage(imageresized)
         canvas.create_image(0,0,image=self.imagetk, anchor='nw')
 
@@ -915,19 +826,19 @@ class Decepticlone(customtkinter.CTk):
                 imageref = canvas.create_image(x1, y1, image=image, anchor='nw')
                 self.imagesrefbtm.append(imageref)
 
-        leftend=91-self.bounds+self.offset-50
+        leftend=80-self.bounds+self.offset-50
         if leftend<=1:
             leftend=1
-        rightstart=101+self.bounds+self.offset-50
-        if rightstart>=193:
-            rightstart=193
-        create_rectangle_left(0, 0, leftend, 130, fill='lightgreen', alpha=.3)
-        create_rectangle_right(rightstart, 0, 194, 130, fill='red', alpha=.3)
-        create_rectangle_top(0, 10, 194, 25, fill='#00ffff', alpha=.3)
-        create_rectangle_btm(0, 130-10, 194, 130, fill='maroon', alpha=.7)
+        rightstart=90+self.bounds+self.offset-50
+        if rightstart>=169:
+            rightstart=169
+        create_rectangle_left(0, 0, leftend, 110, fill='lightgreen', alpha=.3)
+        create_rectangle_right(rightstart, 0, 170, 110, fill='red', alpha=.3)
+        create_rectangle_top(0, 10, 170, 25, fill='#00ffff', alpha=.3)
+        create_rectangle_btm(0, 110-10, 170, 110, fill='maroon', alpha=.7)
 
         frameright3label1 = customtkinter.CTkLabel(frameright3, text='PAUSED Cycle 2', fg_color='transparent', font=('Helvetica',11, 'bold'), text_color='green', anchor='center')
-        frameright3label1.grid(row=0,column=0,padx=(0,0),pady=(7,0), sticky='nsew')
+        frameright3label1.grid(row=0,column=0,padx=(0,0),pady=(0,0), sticky='nsew')
         
 
 
